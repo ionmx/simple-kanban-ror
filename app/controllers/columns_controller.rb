@@ -15,10 +15,11 @@ class ColumnsController < ApplicationController
 
   # POST /columns
   def create
-    @column = Column.new(column_params)
+    @board = Board.find(params["board_id"])
+    @column = @board.columns.new(column_params)
 
     if @column.save
-      render json: @column, status: :created, location: @column
+      render json: {data: @column}, status: :created
     else
       render json: @column.errors, status: :unprocessable_entity
     end
