@@ -1,8 +1,8 @@
 # simple-kanban-ror
 
-This is an example Kanban Board API written in Ruby on Rails.
+This is an example Kanban Board API written in [Ruby on Rails](https://rubyonrails.org/).
 
-React Front-End repo: https://github.com/ionmx/simple-kanban-react
+You can test it with this React Front End: https://github.com/ionmx/simple-kanban-react
 
 ## Start
 
