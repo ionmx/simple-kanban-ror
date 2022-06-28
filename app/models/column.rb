@@ -1,6 +1,6 @@
 class Column < ApplicationRecord
   belongs_to :board
-  has_many :tasks, -> { select(:id, :column_id, :description, :position).order(:position) } 
+  has_many :tasks, -> { select(:id, :column_id, :description, :position).order(:position) }, dependent: :destroy 
 
   before_create :set_column_position
 

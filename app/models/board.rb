@@ -1,5 +1,5 @@
 class Board < ApplicationRecord
-  has_many :columns, -> { select(:id, :board_id, :title, :position).order(:position) } 
+  has_many :columns, -> { select(:id, :board_id, :title, :position).order(:position) }, dependent: :destroy
 
   after_save :add_default_columns
 
