@@ -1,7 +1,8 @@
 require "test_helper"
 
 class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "Should not save Task without description" do
+    task = Column.first.tasks.new
+    assert_not task.save, "Saved the task without description"
+  end
 end
