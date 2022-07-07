@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :column
+  validates :description, presence: true
 
   before_create :set_task_position
 
