@@ -6,31 +6,31 @@ class ColumnsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get columns_url, as: :json
+    get board_columns_url(@column.board_id), as: :json
     assert_response :success
   end
 
   test "should create column" do
     assert_difference("Column.count") do
-      post columns_url, params: { column: { board_id: @column.board_id, position: @column.position, title: @column.title } }, as: :json
+      post board_columns_url(@column.board_id), params: { column: { board_id: @column.board_id, position: @column.position, title: @column.title } }, as: :json
     end
 
     assert_response :created
   end
 
   test "should show column" do
-    get column_url(@column), as: :json
+    get board_column_url(@column.board_id, @column), as: :json
     assert_response :success
   end
 
   test "should update column" do
-    patch column_url(@column), params: { column: { board_id: @column.board_id, position: @column.position, title: @column.title } }, as: :json
+    patch board_column_url(@column.board_id, @column), params: { column: { board_id: @column.board_id, position: @column.position, title: @column.title } }, as: :json
     assert_response :success
   end
 
   test "should destroy column" do
     assert_difference("Column.count", -1) do
-      delete column_url(@column), as: :json
+      delete board_column_url(@column.board_id, @column), as: :json
     end
 
     assert_response :no_content
