@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
-  position: 1
+  description: My first task
+  position: 0
   column: one
 
 two:
-  description: MyString
+  description: Another task
   position: 1
-  column: two
+  column: one
+
+three:
+  description: My done task
+  position: 0
+  column: three
