@@ -1,16 +1,16 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: %i[ update destroy ]
+  before_action :set_board, only: %i[update destroy]
 
   # GET /boards
   def index
     @boards = Board.all
-    render json: { data: @boards } 
+    render json: { data: @boards }
   end
 
   # GET /boards/1
   def show
     @board = Board.select(:id, :title, :description).includes(columns: [:tasks]).where(id: params[:id]).limit(1)
-    render json: {data: @board[0].as_json(include: {columns: {include: :tasks}}) }
+    render json: { data: @board[0].as_json(include: { columns: { include: :tasks } }) }
   end
 
   # POST /boards
@@ -18,7 +18,7 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
-      render json: {data: @board}, status: :created, location: @board
+      render json: { data: @board }, status: :created, location: @board
     else
       render json: @board.errors, status: :unprocessable_entity
     end
@@ -39,13 +39,14 @@ class BoardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_board
-      @board = Board.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def board_params
-      params.require(:board).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_board
+    @board = Board.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def board_params
+    params.require(:board).permit(:title, :description)
+  end
 end
