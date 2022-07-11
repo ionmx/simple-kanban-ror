@@ -48,3 +48,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'bundler-audit', require: false
+gem 'ruby_audit', require: false
+
