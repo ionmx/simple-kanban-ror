@@ -12,7 +12,11 @@ class ColumnsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create column" do
     assert_difference("Column.count") do
-      post board_columns_url(@column.board_id), params: { column: { board_id: @column.board_id, position: @column.position, title: @column.title } }, as: :json
+      post board_columns_url(@column.board_id),
+           params: { column: { board_id: @column.board_id,
+                               position: @column.position,
+                               title: @column.title } },
+           as: :json
     end
 
     assert_response :created
@@ -24,7 +28,11 @@ class ColumnsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update column" do
-    patch board_column_url(@column.board_id, @column), params: { column: { board_id: @column.board_id, position: @column.position, title: @column.title } }, as: :json
+    patch board_column_url(@column.board_id, @column),
+          params: { column: { board_id: @column.board_id,
+                              position: @column.position,
+                              title: @column.title } },
+          as: :json
     assert_response :success
   end
 

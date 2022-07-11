@@ -9,7 +9,7 @@ class Column < ApplicationRecord
   before_create :set_column_position
 
   def set_column_position
-    max = Column.where(board_id: self.board_id).maximum(:position)
+    max = Column.where(board_id:).maximum(:position)
     self.position = max ? max + 1 : 0
   end
 end

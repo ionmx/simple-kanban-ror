@@ -12,7 +12,11 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create task" do
     assert_difference("Task.count") do
-      post board_column_tasks_url(@task.column.board_id, @task.column_id), params: { task: { column_id: @task.column_id, description: @task.description, position: @task.position } }, as: :json
+      post board_column_tasks_url(@task.column.board_id, @task.column_id),
+           params: { task: { column_id: @task.column_id,
+                             description: @task.description,
+                             position: @task.position } },
+           as: :json
     end
 
     assert_response :created
@@ -24,7 +28,12 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update task" do
-    patch board_column_task_url(@task.column.board_id, @task.column_id, @task), params: { task: { column_id: @task.column_id, description: @task.description, position: @task.position } }, as: :json
+    patch board_column_task_url(@task.column.board_id, @task.column_id, @task),
+          params: { task: { column_id: @task.column_id,
+                            description: @task.description,
+                            position: @task.position } },
+          as: :json
+
     assert_response :success
   end
 
