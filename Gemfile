@@ -49,4 +49,5 @@ group :development do
 end
 
 gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
 
